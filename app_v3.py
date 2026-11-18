@@ -8,7 +8,7 @@ from flask import Flask, request, jsonify, render_template_string
 from flask_socketio import SocketIO, emit, join_room
 
 app = Flask(__name__)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="gevent")
 
 SEMAPHORE_API_KEY = os.environ.get("SEMAPHORE_API_KEY", "PASTE_YOUR_SEMAPHORE_API_KEY_HERE")
 SEMAPHORE_SENDER = os.environ.get("SEMAPHORE_SENDER", "SEMAPHORE")
